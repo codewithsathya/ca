@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Profile | Campus Ambassador'21</title>
+
+    <link
+      rel="stylesheet"
+      href="./assets/vendors/mdi/css/materialdesignicons.min.css"
+    />
+    <link rel="stylesheet" href="./assets/vendors/css/vendor.bundle.base.css" />
+
+    <!-- Plugin css for this page -->
+    <link
+      rel="stylesheet"
+      href="./assets/vendors/jvectormap/jquery-jvectormap.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/vendors/flag-icon-css/css/flag-icon.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/vendors/owl-carousel-2/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/vendors/owl-carousel-2/owl.theme.default.min.css"
+    />
+    <!-- End plugin css for this page -->
+
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="./assets/images/logo-mini.png" />
+    <style>
+      .form-group label {
+        font-size: 1rem;
+        padding-top: 0.5rem;
+      }
+      .hidden {
+        display: none;
+      }
+
+      input,
+      select, textarea {
+        color: white !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- sidebar -->
+      <nav class="sidebar sticky-top sidebar-offcanvas" id="sidebar">
+        <div
+          class="
+            sidebar-brand-wrapper
+            d-none d-lg-flex
+            align-items-center
+            justify-content-center
+            fixed-top
+          "
+        >
+          <a class="sidebar-brand brand-logo" href="/home"
+            ><img src="./assets/images/logo.png" alt="logo"
+          /></a>
+        </div>
+        <ul class="nav">
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/home">
+              <span class="menu-icon">
+                <i class="mdi mdi-airplane-takeoff"></i>
+              </span>
+              <span class="menu-title">DASHBOARD</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/fbshare">
+              <span class="menu-icon">
+                <i class="mdi mdi-account-multiple-plus"></i>
+              </span>
+              <span class="menu-title">FACEBOOK SHARE</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/ideate">
+              <span class="menu-icon">
+                <i class="mdi mdi-led-on"></i>
+              </span>
+              <span class="menu-title">IDEATE</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/sharecon">
+              <span class="menu-icon">
+                <i class="mdi mdi-share-variant"></i>
+              </span>
+              <span class="menu-title">SHARE CONTACT</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/leaderboard">
+              <span class="menu-icon">
+                <i class="mdi mdi-star-circle"></i>
+              </span>
+              <span class="menu-title">LEADERBOARD</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/profile">
+              <span class="menu-icon">
+                <i class="mdi mdi-account-circle"></i>
+              </span>
+              <span class="menu-title">MY PROFILE</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/contact">
+              <span class="menu-icon">
+                <i class="mdi mdi-forum"></i>
+              </span>
+              <span class="menu-title">CONTACT US</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- top -->
+      <div class="container-fluid page-body-wrapper">
+        <nav class="navbar p-0 fixed-top d-flex flex-row">
+          <div
+            class="
+              navbar-brand-wrapper
+              d-flex d-lg-none
+              align-items-center
+              justify-content-center
+            "
+            style="width: auto"
+          >
+            <a class="navbar-brand" href="/home"
+              ><img
+                src="./assets/images/logo-mini.png"
+                height="42px"
+                alt="logo"
+            /></a>
+          </div>
+          <div class="navbar-menu-wrapper flex-row d-flex align-items-stretch">
+            <!-- top nav -->
+            <ul class="navbar-nav navbar-nav-right">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link"
+                  id="profileDropdown"
+                  href="#"
+                  data-toggle="dropdown"
+                >
+                  <div class="navbar-profile">
+                    <img
+                      class="img-xs rounded-circle"
+                      src="<%= participant.photo %>"
+                      alt=""
+                    />
+                    <p class="mb-0 d-none d-sm-block navbar-profile-name">
+                      &nbsp;<%= participant.name %>&nbsp;
+                    </p>
+                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                  </div>
+                </a>
+                <div
+                  class="
+                    dropdown-menu dropdown-menu-right
+                    navbar-dropdown
+                    preview-list
+                  "
+                  aria-labelledby="profileDropdown"
+                >
+                  <a class="dropdown-item preview-item" href="/profile">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-settings text-success"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Profile</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item" href="/logout">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-logout text-danger"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Log out</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                </div>
+              </li>
+            </ul>
+            <!-- top nav -->
+            <button
+              class="
+                navbar-toggler navbar-toggler-right
+                d-lg-none
+                align-self-center
+              "
+              type="button"
+              data-toggle="offcanvas"
+            >
+              <span class="mdi mdi-format-line-spacing"></span>
+            </button>
+          </div>
+        </nav>
+        <!-- top -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title">Profile</h2>
+
+                  <!-- filled -->
+                  <% if(participant.wissId){ console.log(participant); %>
+                  <form class="forms-sample" method="POST" action="">
+                    <div class="form-group">
+                      <label for="exampleInputName1">Wissenaire ID</label>
+                      <input
+                        type="text"
+                        class="form-control form-control-lg"
+                        name="wissId"
+                        value="<%=participant.wissId.toUpperCase()%>"
+                        readonly
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputName1">Name</label>
+                      <input
+                        type="text"
+                        class="form-control form-control-lg"
+                        value="<%=participant.name%>"
+                        readonly
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail3">Email address</label>
+                      <input
+                        type="email"
+                        class="form-control form-control-lg"
+                        value="<%=participant.email%>"
+                        readonly
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail3"
+                        >Alternate Email address</label
+                      >
+                      <input
+                        type="email"
+                        class="form-control form-control-lg"
+                        name="alternateemail"
+                        value="<%=participant.email2%>"
+                        readonly
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail3">Mobile </label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text bg-primary text-white"
+                            >+91</span
+                          >
+                        </div>
+                        <input
+                          type="number"
+                          class="form-control form-control-lg"
+                          value="<%=participant.phoneNumber%>"
+                          readonly
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleSelectGender">Gender</label>
+                      <input
+                        type="text"
+                        class="form-control form-control-lg"
+                        name="gender"
+                        value="<%=participant.gender%>"
+                        readonly
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputCity1">Institute of Study</label>
+                      <input
+                        type="text"
+                        class="form-control form-control-lg"
+                        name="college"
+                        value="<%=participant.institute%>"
+                        readonly
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputCity1"
+                        >Year and Branch Of Study</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control form-control-lg"
+                        name="year"
+                        value="<%=participant.year%>"
+                        readonly
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputCity1">City</label>
+                      <input
+                        type="text"
+                        class="form-control form-control-lg"
+                        name="city"
+                        value="<%=participant.city%>"
+                        readonly
+                      />
+                    </div>
+                    <% if(participant.refferalId){ %>
+                    <div class="form-group">
+                      <label for="exampleInputCity1">Referred by</label>
+                      <input
+                        type="text"
+                        class="form-control form-control-lg"
+                        name="ref"
+                        value="<%=participant.refferalId%> (<%=participant.name%>)"
+                      />
+                    </div>
+                    <% } %>
+                  </form>
+                  <% } %>
+
+                  <!-- Not filled -->
+                  <% if(!participant.wissId) { console.log(participant); var
+                  wissId; if (participant.id < 10) wissId = 'w22ca000' +
+                  participant.id; else if (participant.id < 100) wissId =
+                  'w22ca00' + participant.id; else if(participant.id < 1000)
+                  wissId = 'w22ca0' + participant.id; else wissId = 'w22ca' +
+                  participant.id; %>
+                  <form class="forms-sample" method="POST" action="">
+                    <div class="form-group">
+                      <label for="exampleInputName1">Wissenaire ID</label>
+                      <input
+                        type="text"
+                        class="form-control form-control-lg"
+                        name="wissId"
+                        value="<%=wissId.toUpperCase()%>"
+                        readonly
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputName1">Name</label>
+                      <input
+                        type="text"
+                        class="form-control form-control-lg"
+                        name="name"
+                        value="<%=participant.name%>"
+                        readonly
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail3">Email address</label>
+                      <input
+                        type="email"
+                        class="form-control form-control-lg"
+                        value="<%=participant.email%>"
+                        readonly
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail3"
+                        >Alternate Email address</label
+                      >
+                      <input
+                        type="email"
+                        class="form-control form-control-lg"
+                        name="email2"
+                        placeholder="Email"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail3">Mobile </label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text bg-primary text-white"
+                            >+91</span
+                          >
+                        </div>
+                        <input
+                          type="number"
+                          class="form-control form-control-lg phone"
+                          name="phone"
+                          placeholder="Mobile"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleSelectGender">Gender</label>
+                      <select
+                        class="form-control form-control-lg"
+                        name="gender"
+                        id="exampleSelectGender"
+                        required
+                      >
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="null">Prefer, Not to say</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputCity1">Institute of Study</label>
+                      <input
+                        type="text"
+                        class="form-control form-control-lg"
+                        name="institute"
+                        placeholder="Eg: IIT Bhubaneswar"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputCity1"
+                        >Year and Branch Of Study</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control form-control-lg"
+                        name="year"
+                        placeholder="Eg: 3rd year Mechanical"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputCity1">City</label>
+                      <input
+                        type="text"
+                        class="form-control form-control-lg"
+                        name="city"
+                        placeholder="Eg: Bhubaneswar"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleTextarea1"
+                        >Why do you want to become a CA</label
+                      >
+                      <textarea
+                        class="form-control"
+                        id="exampleTextarea1"
+                        name="whyca"
+                        rows="5"
+                        required
+                      ></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleSelectGender"
+                        >How do you know about Wissenaire CA program</label
+                      >
+                      <select
+                        class="form-control form-control- reg"
+                        name="howca"
+                        required
+                      >
+                        <option value="Advertisement">Advertisement</option>
+                        <option value="Web">Web</option>
+                        <option value="Through a registered CA">
+                          Through a registered CA
+                        </option>
+                        <option value="Through Wissenaire member">
+                          Through Wissenaire member
+                        </option>
+                      </select>
+                    </div>
+                    <div id="ca" class="form-group hidden">
+                      <label for="exampleInputCity1">Referral Id</label>
+                      <input
+                        type="text"
+                        class="form-control form-control-lg"
+                        name="refca"
+                        placeholder="Eg: W22CA0001"
+                      />
+                    </div>
+                    <div id="roll" class="form-group hidden">
+                      <label for="exampleInputCity1">Referral Id</label>
+                      <input
+                        type="text"
+                        class="form-control form-control-lg"
+                        name="ref"
+                        placeholder="Eg: 19ME01017"
+                      />
+                    </div>
+                    <div id="caname" class="form-group hidden">
+                      <label for="exampleInputCity1">Name of CA</label>
+                      <input
+                        type="text"
+                        class="form-control form-control-lg"
+                        name="nameofca"
+                        value=""
+                        readonly
+                      />
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">
+                      Submit
+                    </button>
+                    <!-- <button class="btn btn-dark">Cancel</button> -->
+                  </form>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- footer -->
+          <footer class="footer">
+            <div
+              class="
+                d-sm-flex
+                justify-content-center justify-content-sm-between
+              "
+            >
+              <span
+                class="
+                  text-muted
+                  d-block
+                  text-center text-sm-left
+                  d-sm-inline-block
+                "
+              ></span>
+              <span
+                class="
+                  float-none float-sm-right
+                  d-block
+                  mt-1 mt-sm-0
+                  text-center
+                "
+              >
+                Designed by
+                <a href="" target="_blank">Team Wissenaire'22</a></span
+              >
+            </div>
+          </footer>
+          <!-- footer -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="./assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="./assets/vendors/progressbar.js/progressbar.min.js"></script>
+    <script src="./assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+    <script src="./assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="./assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="./assets/js/off-canvas.js"></script>
+    <script src="./assets/js/hoverable-collapse.js"></script>
+    <script src="./assets/js/misc.js"></script>
+    <script src="./assets/js/settings.js"></script>
+    <script src="./assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="./assets/js/dashboard.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".reg").change(function () {
+          console.log("changed");
+          console.log($("select[name=howca]").val());
+          if ($("select[name=howca]").val() == "Through a registered CA") {
+            $("#ca").removeClass("hidden");
+            $("#caname").removeClass("hidden");
+            
+            if (!$("#roll").hasClass("hidden")) $("#roll").addClass("hidden");
+          } else if (
+            $("select[name=howca]").val() == "Through Wissenaire member"
+          ) {
+            $("#roll").removeClass("hidden");
+            if (!$("#ca").hasClass("hidden")) {
+              $("#ca").addClass("hidden");
+              $("#caname").addClass("hidden");
+            }
+          } else {
+            if (!$("#ca").hasClass("hidden")) {
+              $("#ca").addClass("hidden");
+              $("#caname").addClass("hidden");
+            }
+            if (!$("#roll").hasClass("hidden")) $("#roll").addClass("hidden");
+          }
+        });
+        console.log("phone");
+        $(".phone").blur(function (e) {
+          phone = $(this).val();
+          phone = phone.replace(/[^0-9]/g, "");
+          if (phone.length != 10) {
+            alert("Enter a valid Phone no.");
+            $(".phone").addClass("is-invalid");
+            $(".phone").removeClass("is-valid");
+          } else {
+            $(".phone").addClass("is-valid");
+            $(".phone").removeClass("is-invalid");
+          }
+        });
+
+        $("input[name=refca]").blur(function (e) {
+          console.log("blur");
+          var wissId = $(this).val();
+          const urL = "/wissId/" + wissId;
+          $.ajax({
+            url: urL,
+            type: "PUT",
+            success: function (result) {
+              console.log(result);
+              $("input[name=nameofca]")[0].value = result;
+            },
+            error: function(result) {
+              $("input[name=nameofca]")[0].value = "Not found";
+              new swal({
+                title: "Error",
+                text: "Refferal not found",
+                icon: "error"
+              });
+            }
+          });
+        });
+      });
+    </script>
+    <!-- End custom js for this page -->
+  </body>
+</html>

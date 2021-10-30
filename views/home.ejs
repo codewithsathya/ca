@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dashboard | Campus Ambassador'21</title>
+
+    <link rel="stylesheet" href="./assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="./assets/vendors/css/vendor.bundle.base.css">
+    <!-- Font Awesome -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.2.0/mdb.min.css"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.2.0/mdb.min.js"
+></script>
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="./assets/vendors/jvectormap/jquery-jvectormap.css">
+    <link rel="stylesheet" href="./assets/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="./assets/vendors/owl-carousel-2/owl.carousel.min.css">
+    <link rel="stylesheet" href="./assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+    <!-- End plugin css for this page -->
+
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="./assets/images/logo-mini.png" />
+    <style>
+      h1{
+        font-size: 2rem;
+      }
+      p{
+        line-height: 2;
+      }
+      .accordion-flush .accordion-button {
+        color: white;
+        font-size: 1.2rem;
+      }
+      .accordion-flush .accordion-item .accordion-button {
+        background-color: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- sidebar -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+          <a class="sidebar-brand brand-logo" href="/home"><img src="./assets/images/logo.png" alt="logo" /></a>
+        </div>
+        <ul class="nav">
+            
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="/home">
+                  <span class="menu-icon">
+                    <i class="mdi mdi-airplane-takeoff"></i>
+                  </span>
+                  <span class="menu-title">DASHBOARD</span>
+                </a>
+            </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="/fbshare">
+                  <span class="menu-icon">
+                    <i class="mdi mdi-account-multiple-plus"></i>
+                  </span>
+                  <span class="menu-title">FACEBOOK SHARE</span>
+                </a>
+            </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="/ideate">
+                  <span class="menu-icon">
+                    <i class="mdi mdi-led-on"></i>
+                  </span>
+                  <span class="menu-title">IDEATE</span>
+                </a>
+            </li>
+            <li class="nav-item menu-items">
+              <a class="nav-link" href="/sharecon">
+                <span class="menu-icon">
+                  <i class="mdi mdi-share-variant"></i>
+                </span>
+                <span class="menu-title">SHARE CONTACT</span>
+              </a>
+            </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="/leaderboard">
+                  <span class="menu-icon">
+                    <i class="mdi mdi-star-circle"></i>
+                  </span>
+                  <span class="menu-title">LEADERBOARD</span>
+                </a>
+            </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="/profile">
+                  <span class="menu-icon">
+                    <i class="mdi mdi-account-circle"></i>
+                  </span>
+                  <span class="menu-title">MY PROFILE</span>
+                </a>
+            </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="/contact">
+                  <span class="menu-icon">
+                    <i class="mdi mdi-forum"></i>
+                  </span>
+                  <span class="menu-title">CONTACT US</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+      <!-- top -->
+      <div class="container-fluid page-body-wrapper">
+        <nav class="navbar p-0 fixed-top d-flex flex-row">
+          <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center" style="width: auto;">
+            <a class="navbar-brand" href="/home"><img src="./assets/images/logo-mini.png" height="42px" alt="logo" /></a>
+          </div>
+          <div class="navbar-menu-wrapper flex-row d-flex align-items-stretch">
+            
+
+            <!-- top nav -->
+            <ul class="navbar-nav navbar-nav-right">
+              <li class="nav-item dropdown">
+                <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+                  <div class="navbar-profile">
+                    <img class="img-xs rounded-circle" src="<%= participant.photo %>" alt="">
+                    <p class="mb-0 d-none d-sm-block navbar-profile-name">&nbsp;<%= participant.name %>&nbsp;</p>
+                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                  </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
+                  <a class="dropdown-item preview-item" href="/profile">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-settings text-success"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Profile</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item" href="/logout">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-logout text-danger"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Log out</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                </div>
+              </li>
+            </ul>
+            <!-- top nav -->
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+              <span class="mdi mdi-format-line-spacing"></span>
+            </button>
+          </div>
+        </nav>
+        <!-- top -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+
+
+
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-mdb-toggle="collapse"
+                    data-mdb-target="#flush-collapseOne"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseOne"
+                  >
+                  Why become a CA?
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseOne"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingOne"
+                  data-mdb-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body">
+                    • CA's represent the fest outside IIT Bhubaneswar, and hence is an opportunity to enhance your leadership skills.<br>
+• It provides a great platform for students looking to improve their managerial and communication skill set.<br>
+• It helps you build connectivity with people from diverse fields across the country.<br>
+• It is a rare chance of exposure to thousands of young minds and eminent personalities.<br>
+• CA's get special access to a few selected events of the fest.<br>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingTwo">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-mdb-toggle="collapse"
+                    data-mdb-target="#flush-collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseTwo"
+                  >
+                  What should a CA do?
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseTwo"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingTwo"
+                  data-mdb-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body">
+                    • Promote the events, workshops and competitions by sharing those details on Facebook timeline and college facebook and mail groups.<br>
+• Promoting events and workshops of WISSENAIRE in your respective colleges (offline).<br>
+• To strive to bring maximum participation from your respective colleges.<br>
+• To act as a medium for effective communication between the Wissenaire team and your college.<br>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingThree">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-mdb-toggle="collapse"
+                    data-mdb-target="#flush-collapseThree"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseThree"
+                  >
+                  What benefits does a CA get?
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseThree"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingThree"
+                  data-mdb-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body">
+                    CA's of Wissenaire’21 get the chance to work with the team of Wissenaire’21, and to witness the work yield amazing results. <br>
+Based on the following factors, CA's are awarded points:<br>
+ • 30 points- For each participant registered by the CA <br>
+ • 15 points- The number of CA's registered through them (by using their referal ID) <br>
+ • 10 points- Online promotion activities i.e., sharing Wissenaire Facebook posts.<br>
+ • 50 points- Sharing innovative ideas for further promotion.<br>
+ • 50 points- Adding to Wissenaire's connectivity by sharing useful contacts. <br>
+<br>
+They will be further ranked according to the points gained and classified into three categories as follows:<br>
+• Rank 1-10: Diamond CA’s <br>
+• Rank 11-40: Gold CA’s<br>
+• Rank 41-100: Silver CA’s<br>
+<br>
+The Prizes or benefits for different classes of CA’s are as follows:<br>
+• Diamond CA’s: Free Registration for any 4 events + Photos of CA will be displayed in the website and social media + Certificate (Diamond) from Wissenaire.<br>
+• Gold CA’s: Free Registration for any 2 events + One’s name will be mentioned in the website and social media + Certificate (Gold) from Wissenaire.<br>
+• Silver CA’s: T shirt + Certificate (Silver) from Wissenaire.<br>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingFour">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-mdb-toggle="collapse"
+                    data-mdb-target="#flush-collapseFour"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseFour"
+                  >
+                  Who can become CA?
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseFour"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingFour"
+                  data-mdb-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body">
+                    Students enrolled in any college and in any year can apply. All you need is the will to build your personality and skills, and hence contribute to making Wissenaire better by the year. Hurry up, and register right away!
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            
+
+
+           
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- footer -->
+          <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block"></span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Designed by <a href="" target="_blank">Team Wissenaire'22</a></span>
+            </div>
+          </footer>
+          <!-- footer -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="./assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="./assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="./assets/vendors/progressbar.js/progressbar.min.js"></script>
+    <script src="./assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+    <script src="./assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="./assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="./assets/js/off-canvas.js"></script>
+    <script src="./assets/js/hoverable-collapse.js"></script>
+    <script src="./assets/js/misc.js"></script>
+    <script src="./assets/js/settings.js"></script>
+    <script src="./assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="./assets/js/dashboard.js"></script>
+    <!-- End custom js for this page -->
+  </body>
+</html>

@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Campus Ambassador | Wissenaire'21</title>
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./stylesheets/socialicons.html"
+    />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/base.css" />
+    <link rel="stylesheet" href="./assets/css/vendor.css" />
+    <link rel="stylesheet" href="./assets/css/button.css" />
+    <link rel="stylesheet" href="./assets/css/demo.css" />
+    <link rel="stylesheet" href="./stylesheets/base.css" />
+    <link rel="stylesheet" href="./stylesheets/vendor.css" />
+    <link rel="stylesheet" href="./stylesheets/main.css" />
+    <link rel="stylesheet" type="text/css" href="./stylesheets/sm.css" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="./stylesheets/fbloginbox.css"
+    />
+    <link href="./stylesheets/canva.css" type="text/css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="./javascripts/modernizr.js"></script>
+    <script src="./javascripts/pace.min.js"></script>
+
+    <link
+      rel="shortcut icon"
+      href="./images/logo-mini.png"
+      type="image/x-icon"
+    />
+    <!-- <link rel="icon" href="./images/wiss.ico" type="image/x-icon"> -->
+    <style>
+      html {
+        overflow-y: scroll;
+      }
+      ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent; /* make scrollbar transparent */
+      }
+      #slide {
+        -webkit-animation: slide 0.5s forwards;
+        -webkit-animation-delay: 2s;
+        animation: slide 0.5s forwards;
+        animation-delay: 2s;
+      }
+
+      @-webkit-keyframes slide {
+        100% {
+          left: 0;
+        }
+      }
+
+      @keyframes slide {
+        100% {
+          left: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body id="top">
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0&appId=458667779015054&autoLogAppEvents=1"
+      nonce="vtY4P3wx"
+    ></script>
+    <script>
+      AOS.init();
+    </script>
+    <canvas id="canvas1" style="z-index: -100"></canvas>
+
+    <div class="header-logo img-fluid" style="margin-top: 2vh">
+      <a href="">Campus Ambassador W'21</a>
+    </div>
+
+    <div class="menu-btn" style="z-index: 110">
+      <div class="line line--1"></div>
+      <div class="line line--2"></div>
+      <div class="line line--3"></div>
+    </div>
+
+    <nav>
+      <div class="nav-links" style="z-index: 10">
+        <a class="link one">
+          <i class="fas fa-question-circle two" style="font-size: 20px"></i>
+          <strong>About</strong>
+        </a>
+
+        <a class="link two">
+          <i class="fas fa-question-circle two" style="font-size: 20px"></i>
+          <strong>Why ?</strong>
+        </a>
+
+        <a class="link three">
+          <i class="fas fa-user-edit three" style="font-size: 20px"></i>
+          <strong>Responsibility</strong>
+        </a>
+
+        <a class="link four">
+          <i class="fas fa-award four" style="font-size: 20px"></i>
+          <strong>Benefits</strong>
+        </a>
+
+        <a class="link five">
+          <i class="fas fa-user-check five" style="font-size: 20px"></i>
+          <strong>Eligibility</strong>
+        </a>
+      </div>
+    </nav>
+
+    <div class="inform" style="z-index: -1">
+      <div class="home-content-table" style="z-index: -1">
+        <div class="home-content-tablecell" style="z-index: -1">
+          <div class="row">
+            <div class="col-twelve" style="z-index: -1">
+              <h3 class="animate-intro" style="z-index: -1">
+                IIT BHUBANESWAR & Wissenaire <br />Presents
+              </h3>
+              <h1 class="animate-intro" style="font-size: 4.5rem">
+                CAMPUS AMBASSADOR
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ul
+      class="home-social d-none d-md-block"
+      style="position: absolute; right: 2rem; top: 50%"
+    >
+      <li>
+        <a href="https://www.facebook.com/wissenaireiitbbs"
+          ><i class="fab fa-facebook"></i><span>Facebook</span></a
+        >
+      </li>
+      <li>
+        <a href="https://www.instagram.com/wissenaire.iitbbs/?hl=en"
+          ><i class="fab fa-instagram" style="color: white"></i
+          ><span>Instagram</span></a
+        >
+      </li>
+      <li>
+        <a href="https://twitter.com/wissenaire21?s=08"
+          ><i class="fab fa-twitter" aria-hidden="true"></i
+          ><span>Twitter</span></a
+        >
+      </li>
+      <li>
+        <a href="https://www.youtube.com/user/wissenaireiitbbs/featured"
+          ><i class="fab fa-youtube" aria-hidden="true"></i
+          ><span>YouTube</span></a
+        >
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/company/wissenaire-iit-bhubaneswar/"
+          ><i class="fab fa-linkedin-in" aria-hidden="true"></i
+          ><span>LinkedIn</span></a
+        >
+      </li>
+    </ul>
+
+    <!-- <div>
+      <ul
+      class="home-social">
+        <li>
+          <a href="https://www.facebook.com/martydevelopment/" target="_blank">
+            <i class="fab fa-facebook" tabindex="0"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://codepen.io/Marty-Development" target="_blank">
+            <i class="fab fa-codepen" tabindex="0"></i>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.instagram.com/marty.development/"
+            target="_blank"
+          >
+            <i class="fab fa-instagram" tabindex="0"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/MartyDevelopment" target="_blank">
+            <i class="fab fa-github" tabindex="0"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fab fa-youtube" tabindex="0" target="_blank"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fab fa-pinterest" tabindex="0" target="_blank"></i>
+          </a>
+        </li>
+      </ul>
+    </div> -->
+
+    <ul
+      class="home-social d-md-none"
+      style="width: 100vw; margin-top: 63%; margin-left: 4.5vw !important"
+    >
+      <li style="display: inline-block">
+        <a
+          href="https://www.facebook.com/wissenaireiitbbs"
+          style="margin-left: 0"
+          ><i class="fab fa-facebook"></i><span>Facebook</span></a
+        >
+      </li>
+      <li style="display: inline-block">
+        <a
+          href="https://www.instagram.com/wissenaire.iitbbs/?hl=en"
+          style="margin-left: 0"
+          ><i class="fab fa-instagram" style="color: white"></i
+          ><span>Instagram</span></a
+        >
+      </li>
+      <li style="display: inline-block">
+        <a href="https://twitter.com/wissenaire21?s=08" style="margin-left: 0"
+          ><i class="fab fa-twitter" aria-hidden="true"></i
+          ><span>Twitter</span></a
+        >
+      </li>
+      <li style="display: inline-block">
+        <a
+          href="https://www.youtube.com/user/wissenaireiitbbs/featured"
+          style="margin-left: 0"
+          ><i class="fab fa-youtube" aria-hidden="true"></i
+          ><span>YouTube</span></a
+        >
+      </li>
+      <li style="display: inline-block">
+        <a
+          href="https://www.linkedin.com/company/wissenaire-iit-bhubaneswar/"
+          style="margin-left: 0"
+          ><i class="fab fa-linkedin-in" aria-hidden="true"></i
+          ><span>LinkedIn</span></a
+        >
+      </li>
+    </ul>
+
+    <div
+      class="support"
+      style="
+        display: block;
+        width: 100vw !important;
+        margin: auto;
+        position: absolute;
+        top: 60%;
+      "
+    >
+      <div
+        class="fb-login-button"
+        data-width=""
+        data-size="large"
+        data-button-type="continue_with"
+        data-layout="default"
+        data-auto-logout-link="false"
+        data-use-continue-as="true"
+        style="text-align: center; display: block; margin: auto"
+        onlogin="checkLoginState();"
+      ></div>
+
+      <!-- <a href="/auth/google"
+        ><img
+          class="img-fluid"
+          src="./assets/images/login.png"
+          width="250px"
+          style="display: block; margin: auto"
+      /></a> -->
+    </div>
+
+    <a class="info-toggle" href="#0" style="left: 0">
+      <span class="info-menu-icon"></span>
+    </a>
+
+    <div class="s-info">
+      <div class="row animate-intro info-wrapper cityone">
+        <div class="col-seven tab-full info-main">
+          <h1>About Us</h1>
+          <p>
+            WISSENAIRE is the Annual Techno-Management Fest of Indian Institute
+            of Technology, Bhubaneswar. Wissenaire is a Technical extravaganza
+            encompassing a multitude of events in the Scientific, Technical and
+            Managerial domains with a well-rounded collection of Competitions,
+            Workshops, Exhibitions, Star Nites, Quizzes, Colloquia, Lectures to
+            inspire Youth to embark on a journey of technical excellence,
+            creativity and innovation. It is indeed one of the most awaited
+            Fests in Eastern India.
+          </p>
+        </div>
+
+        <div class="col-four tab-full pull-right info-contact">
+          <div class="info-block">
+            <h3>Contact Us</h3>
+            <p>
+              Abhinav Reddy<br />
+              <a
+                href="mailto:sar10@iitbbs.ac.in"
+                class="info-email"
+                style="margin: 0px"
+                ><i class="fas fa-envelope"></i
+                >&nbsp;&nbsp;sar10@iitbbs.ac.in</a
+              ><br />
+              <a
+                href="tel:+91 8688020904"
+                class="'info-phone"
+                style="margin: 0px"
+                ><i class="fas fa-phone"></i>&nbsp;&nbsp;+91 8688020904</a
+              >
+            </p>
+
+            <p>
+              Vivek Sadineni<br />
+              <a
+                href="mailto:sv21@iitbbs.ac.in"
+                class="info-email"
+                style="margin: 0px"
+                ><i class="fas fa-envelope"></i>&nbsp;&nbsp;sv21@iitbbs.ac.in</a
+              ><br />
+              <a
+                href="tel:+91 7337094987"
+                class="'info-phone"
+                style="margin: 0px"
+                ><i class="fas fa-phone"></i>&nbsp;&nbsp;+91 7337094987</a
+              >
+            </p>
+          </div>
+
+          <div class="info-block"></div>
+        </div>
+        <!-- end info contact -->
+      </div>
+      <!-- end info wrapper -->
+
+      <div class="row animate-intro info-wrapper citytwo">
+        <div class="col-seven tab-full info-main">
+          <h1>Why become a CA?</h1>
+          <p>
+            • CA's represent the fest outside IIT Bhubaneswar, and hence is an
+            opportunity to enhance your leadership skills. <br />
+            • It provides a great platform for students looking to improve their
+            managerial and communication skill set. <br />
+            • It helps you build connectivity with people from diverse fields
+            across the country. <br />
+            • It is a rare chance of exposure to thousands of young minds and
+            eminent personalities. <br />
+            • CA's get special access to a few selected events of the fest.
+            <br />
+          </p>
+        </div>
+
+        <div class="col-four tab-full pull-right info-contact">
+          <div class="info-block">
+            <h3>Contact Us</h3>
+            <p>
+              Abhinav Reddy<br />
+              <a
+                href="mailto:sar10@iitbbs.ac.in"
+                class="info-email"
+                style="margin: 0px"
+                ><i class="fas fa-envelope"></i
+                >&nbsp;&nbsp;sar10@iitbbs.ac.in</a
+              ><br />
+              <a
+                href="tel:+91 8688020904"
+                class="'info-phone"
+                style="margin: 0px"
+                ><i class="fas fa-phone"></i>&nbsp;&nbsp;+91 8688020904</a
+              >
+            </p>
+
+            <p>
+              Vivek Sadineni<br />
+              <a
+                href="mailto:sv21@iitbbs.ac.in"
+                class="info-email"
+                style="margin: 0px"
+                ><i class="fas fa-envelope"></i>&nbsp;&nbsp;sv21@iitbbs.ac.in</a
+              ><br />
+              <a
+                href="tel:+91 7337094987"
+                class="'info-phone"
+                style="margin: 0px"
+                ><i class="fas fa-phone"></i>&nbsp;&nbsp;+91 7337094987</a
+              >
+            </p>
+          </div>
+
+          <div class="info-block"></div>
+        </div>
+        <!-- end info contact -->
+      </div>
+      <!-- end info wrapper -->
+      <div class="row animate-intro info-wrapper citythree">
+        <div class="col-seven tab-full info-main">
+          <h1>What should a CA do?</h1>
+          <p>
+            • Promote the events, workshops and competitions by sharing those
+            details on Facebook timeline and college facebook and mail groups.
+            <br />
+            • Promoting events and workshops of WISSENAIRE in your respective
+            colleges (offline). <br />
+            • To strive to bring maximum participation from your respective
+            colleges.<br />
+            • To act as a medium for effective communication between the
+            Wissenaire team and your college.<br />
+          </p>
+        </div>
+
+        <div class="col-four tab-full pull-right info-contact">
+          <div class="info-block">
+            <h3>Contact Us</h3>
+            <p>
+              Abhinav Reddy<br />
+              <a
+                href="mailto:sar10@iitbbs.ac.in"
+                class="info-email"
+                style="margin: 0px"
+                ><i class="fas fa-envelope"></i
+                >&nbsp;&nbsp;sar10@iitbbs.ac.in</a
+              ><br />
+              <a
+                href="tel:+91 8688020904"
+                class="'info-phone"
+                style="margin: 0px"
+                ><i class="fas fa-phone"></i>&nbsp;&nbsp;+91 8688020904</a
+              >
+            </p>
+
+            <p>
+              Vivek Sadineni<br />
+              <a
+                href="mailto:sv21@iitbbs.ac.in"
+                class="info-email"
+                style="margin: 0px"
+                ><i class="fas fa-envelope"></i>&nbsp;&nbsp;sv21@iitbbs.ac.in</a
+              ><br />
+              <a
+                href="tel:+91 7337094987"
+                class="'info-phone"
+                style="margin: 0px"
+                ><i class="fas fa-phone"></i>&nbsp;&nbsp;+91 7337094987</a
+              >
+            </p>
+          </div>
+
+          <div class="info-block"></div>
+        </div>
+        <!-- end info contact -->
+      </div>
+      <!-- end info wrapper -->
+      <div class="row animate-intro info-wrapper cityfour">
+        <div class="col-seven tab-full info-main">
+          <h1>What benefits does a CA get?</h1>
+          <p>
+            CA's of Wissenaire’21 get the chance to work with the team of
+            Wissenaire’21, and to witness the work yield amazing results. <br />
+            Based on the following factors, CA's are awarded points:<br />
+             • 30 points- For each participant registered by the CA<br />
+             • 15 points- The number of CA's registered through them (by using
+            their referal ID)<br />
+             • 10 points- Online promotion activities i.e., sharing Wissenaire
+            Facebook posts.<br />
+             • 50 points- Sharing innovative ideas for further promotion.<br />
+             • 50 points- Adding to Wissenaire's connectivity by sharing useful
+            contacts. <br />
+            <br />
+            They will be further ranked according to the points gained and
+            classified into three categories as follows:<br />
+            • Rank 1-10: Diamond CA’s<br />
+            • Rank 11-40: Gold CA’s<br />
+            • Rank 41-100: Silver CA’s<br />
+            <br />
+            The Prizes or benefits for different classes of CA’s are as
+            follows:<br />
+            • Top 3 CA's : Prizes worth 5k + 50% off on summer training by
+            Wissenaire, IIT Bhubaneswar.<br />
+            • Diamond CA’s: Free Registration for any 4 events + Photos of CA
+            will be displayed in the website and social media + Certificate
+            (Diamond) from Wissenaire.<br />
+            • Gold CA’s: Free Registration for any 2 events + One’s name will be
+            mentioned in the website and social media + Certificate (Gold) from
+            Wissenaire.<br />
+            • Silver CA’s: T shirt + Certificate (Silver) from Wissenaire.<br />
+          </p>
+        </div>
+
+        <div class="col-four tab-full pull-right info-contact">
+          <div class="info-block">
+            <h3>Contact Us</h3>
+            <p>
+              Abhinav Reddy<br />
+              <a
+                href="mailto:sar10@iitbbs.ac.in"
+                class="info-email"
+                style="margin: 0px"
+                ><i class="fas fa-envelope"></i
+                >&nbsp;&nbsp;sar10@iitbbs.ac.in</a
+              ><br />
+              <a
+                href="tel:+91 8688020904"
+                class="'info-phone"
+                style="margin: 0px"
+                ><i class="fas fa-phone"></i>&nbsp;&nbsp;+91 8688020904</a
+              >
+            </p>
+
+            <p>
+              Vivek Sadineni<br />
+              <a
+                href="mailto:sv21@iitbbs.ac.in"
+                class="info-email"
+                style="margin: 0px"
+                ><i class="fas fa-envelope"></i>&nbsp;&nbsp;sv21@iitbbs.ac.in</a
+              ><br />
+              <a
+                href="tel:+91 7337094987"
+                class="'info-phone"
+                style="margin: 0px"
+                ><i class="fas fa-phone"></i>&nbsp;&nbsp;+91 7337094987</a
+              >
+            </p>
+          </div>
+
+          <div class="info-block"></div>
+        </div>
+        <!-- end info contact -->
+      </div>
+      <!-- end info wrapper -->
+      <div class="row animate-intro info-wrapper cityfive">
+        <div class="col-seven tab-full info-main">
+          <h1>Who can become CA?</h1>
+          <p>
+            Students enrolled in any college and in any year can apply. All you
+            need is the will to build your personality and skills, and hence
+            contribute to making Wissenaire better by the year. Hurry up, and
+            register right away!
+          </p>
+        </div>
+
+        <div class="col-four tab-full pull-right info-contact">
+          <div class="info-block">
+            <h3>Contact Us</h3>
+            <p>
+              Abhinav Reddy<br />
+              <a
+                href="mailto:sar10@iitbbs.ac.in"
+                class="info-email"
+                style="margin: 0px"
+                ><i class="fas fa-envelope"></i
+                >&nbsp;&nbsp;sar10@iitbbs.ac.in</a
+              ><br />
+              <a
+                href="tel:+91 8688020904"
+                class="'info-phone"
+                style="margin: 0px"
+                ><i class="fas fa-phone"></i>&nbsp;&nbsp;+91 8688020904</a
+              >
+            </p>
+
+            <p>
+              Vivek Sadineni<br />
+              <a
+                href="mailto:sv21@iitbbs.ac.in"
+                class="info-email"
+                style="margin: 0px"
+                ><i class="fas fa-envelope"></i>&nbsp;&nbsp;sv21@iitbbs.ac.in</a
+              ><br />
+              <a
+                href="tel:+91 7337094987"
+                class="'info-phone"
+                style="margin: 0px"
+                ><i class="fas fa-phone"></i>&nbsp;&nbsp;+91 7337094987</a
+              >
+            </p>
+          </div>
+
+          <div class="info-block"></div>
+        </div>
+        <!-- end info contact -->
+      </div>
+      <!-- end info wrapper -->
+    </div>
+    <!-- end s-info -->
+
+    <footer>
+      <div id="go-top">
+        <a class="smoothscroll" title="Back to Top" href="#top">
+          <i class="fas fa-arrow-up" style="color: white"></i>
+        </a>
+      </div>
+    </footer>
+
+    <div id="preloader">
+      <div id="loader"></div>
+    </div>
+
+    <script src="./javascripts/jquery-2.1.3.min.js"></script>
+    <script src="./javascripts/plugins.js"></script>
+    <script src="./javascripts/main.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/polygons.js"></script>
+    <script type="text/javascript" src="./javascripts/sm.js"></script>
+    <script type="text/javascript" src="./javascripts/canva.js"></script>
+    <script type="text/javascript" src="./javascripts/socialmenu.js"></script>
+    <script>
+      function checkLoginState() {
+        window.location = "/auth/facebook";
+      }
+    </script>
+  </body>
+</html>

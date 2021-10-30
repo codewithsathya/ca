@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Leaderboard | Campus Ambassador'21</title>
+
+    <link
+      rel="stylesheet"
+      href="./assets/vendors/mdi/css/materialdesignicons.min.css"
+    />
+    <link rel="stylesheet" href="./assets/vendors/css/vendor.bundle.base.css" />
+
+    <!-- Plugin css for this page -->
+    <link
+      rel="stylesheet"
+      href="./assets/vendors/jvectormap/jquery-jvectormap.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/vendors/flag-icon-css/css/flag-icon.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/vendors/owl-carousel-2/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./assets/vendors/owl-carousel-2/owl.theme.default.min.css"
+    />
+    <!-- End plugin css for this page -->
+
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="./assets/images/logo-mini.png" />
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+    />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- sidebar -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div
+          class="
+            sidebar-brand-wrapper
+            d-none d-lg-flex
+            align-items-center
+            justify-content-center
+            fixed-top
+          "
+        >
+          <a class="sidebar-brand brand-logo" href="/home"
+            ><img src="./assets/images/logo.png" alt="logo"
+          /></a>
+        </div>
+        <ul class="nav">
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/home">
+              <span class="menu-icon">
+                <i class="mdi mdi-airplane-takeoff"></i>
+              </span>
+              <span class="menu-title">DASHBOARD</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/fbshare">
+              <span class="menu-icon">
+                <i class="mdi mdi-account-multiple-plus"></i>
+              </span>
+              <span class="menu-title">FACEBOOK SHARE</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/ideate">
+              <span class="menu-icon">
+                <i class="mdi mdi-led-on"></i>
+              </span>
+              <span class="menu-title">IDEATE</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/sharecon">
+              <span class="menu-icon">
+                <i class="mdi mdi-share-variant"></i>
+              </span>
+              <span class="menu-title">SHARE CONTACT</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/leaderboard">
+              <span class="menu-icon">
+                <i class="mdi mdi-star-circle"></i>
+              </span>
+              <span class="menu-title">LEADERBOARD</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/profile">
+              <span class="menu-icon">
+                <i class="mdi mdi-account-circle"></i>
+              </span>
+              <span class="menu-title">MY PROFILE</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/contact">
+              <span class="menu-icon">
+                <i class="mdi mdi-forum"></i>
+              </span>
+              <span class="menu-title">CONTACT US</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- top -->
+      <div class="container-fluid page-body-wrapper">
+        <nav class="navbar p-0 fixed-top d-flex flex-row">
+          <div
+            class="
+              navbar-brand-wrapper
+              d-flex d-lg-none
+              align-items-center
+              justify-content-center
+            "
+            style="width: auto"
+          >
+            <a class="navbar-brand" href="/home"
+              ><img
+                src="./assets/images/logo-mini.png"
+                height="42px"
+                alt="logo"
+            /></a>
+          </div>
+          <div class="navbar-menu-wrapper flex-row d-flex align-items-stretch">
+            <!-- top nav -->
+            <ul class="navbar-nav navbar-nav-right">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link"
+                  id="profileDropdown"
+                  href="#"
+                  data-toggle="dropdown"
+                >
+                  <div class="navbar-profile">
+                    <img
+                      class="img-xs rounded-circle"
+                      src="<%= participant.photo %>"
+                      alt=""
+                    />
+                    <p class="mb-0 d-none d-sm-block navbar-profile-name">
+                      &nbsp;<%= participant.name %>&nbsp;
+                    </p>
+                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                  </div>
+                </a>
+                <div
+                  class="
+                    dropdown-menu dropdown-menu-right
+                    navbar-dropdown
+                    preview-list
+                  "
+                  aria-labelledby="profileDropdown"
+                >
+                  <a class="dropdown-item preview-item" href="/profile">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-settings text-success"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Profile</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item" href="/logout">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-logout text-danger"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Log out</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                </div>
+              </li>
+            </ul>
+            <!-- top nav -->
+            <button
+              class="
+                navbar-toggler navbar-toggler-right
+                d-lg-none
+                align-self-center
+              "
+              type="button"
+              data-toggle="offcanvas"
+            >
+              <span class="mdi mdi-format-line-spacing"></span>
+            </button>
+          </div>
+        </nav>
+        <!-- top -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row">
+              <div class="col-12 col-md-5" style="margin-bottom: 30px">
+                <div
+                  class="leaderboard_profile"
+                  style="border: 5px solid gold; border-radius: 8px"
+                >
+                  <% var str = participant.accessToken; if(str.substr(0,2) !=
+                  'ya'){ %>
+                  <img
+                    src="https://graph.facebook.com/<%= participant.fbId %>/picture?height=500"
+                    style="width: 100%"
+                  />
+                  <%} else {%>
+                  <img src="<%= participant.photo %>" style="width: 100%" />
+                  <% } %>
+                  <h2 align="center" style="margin-top: 0.2em">
+                    <%=participant.name %>
+                  </h2>
+                  <div align="center" style="margin-top: 0.15em">
+                    <%=participant.wissId.toUpperCase() %>
+                  </div>
+                  <div align="center" style="margin-top: 0.15em">
+                    Rank: <%=participant.rank+1 %>
+                  </div>
+                  <div
+                    align="center"
+                    style="margin-top: 0.15em; margin-bottom: 0.2em"
+                  >
+                    Points :
+                    <span style="color: rgb(255, 215, 0)">
+                      <i class="fas fa-coins"></i>
+                      &nbsp;&nbsp;<%=participant.points %></span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-7" style="margin-bottom: 30px">
+                <div class="card">
+                  <div class="card-body">
+                    <div
+                      class="
+                        d-flex
+                        flex-row
+                        justify-content-between
+                        border-bottom
+                      "
+                    >
+                      <h2 class="card-title mb-2">Leaderboard</h2>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="preview-list">
+                          <% for(var i=0; i < Math.min(leaderboard.length, 5); i++){ %>
+                          <div class="preview-item mt-2">
+                            <div class="preview-thumbnail">
+                              <div class="preview-icon">
+                                <img
+                                  src="./images/badge<%=i+1%>.png"
+                                  style="height: auto"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="preview-item-content d-sm-flex flex-grow"
+                            >
+                              <div
+                                style="
+                                  padding-right: 1.4rem;
+                                  display: block;
+                                  margin-top: auto;
+                                "
+                              >
+                                <h4 class=""><%=leaderboard[i].wissId.toUpperCase() %></h4>
+                              </div>
+                              <div class="flex-grow">
+                                <h4 class="preview-subject">
+                                  <%=leaderboard[i].name %>
+                                </h4>
+                                <p class="text-muted mb-0">
+                                  <%=leaderboard[i].institute %>
+                                </p>
+                              </div>
+                              <div
+                                class="text-sm-right"
+                                style="display: block; margin-top: auto"
+                              >
+                                <h5>
+                                  <i class="fas fa-coins"></i>
+                                  &nbsp;<%=leaderboard[i].points %>
+                                </h5>
+                              </div>
+                            </div>
+                          </div>
+                          <% } %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- footer -->
+          <footer class="footer">
+            <div
+              class="
+                d-sm-flex
+                justify-content-center justify-content-sm-between
+              "
+            >
+              <span
+                class="
+                  text-muted
+                  d-block
+                  text-center text-sm-left
+                  d-sm-inline-block
+                "
+              ></span>
+              <span
+                class="
+                  float-none float-sm-right
+                  d-block
+                  mt-1 mt-sm-0
+                  text-center
+                "
+              >
+                Designed by
+                <a href="" target="_blank">Team Wissenaire'22</a></span
+              >
+            </div>
+          </footer>
+          <!-- footer -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="./assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="./assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="./assets/vendors/progressbar.js/progressbar.min.js"></script>
+    <script src="./assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+    <script src="./assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="./assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="./assets/js/off-canvas.js"></script>
+    <script src="./assets/js/hoverable-collapse.js"></script>
+    <script src="./assets/js/misc.js"></script>
+    <script src="./assets/js/settings.js"></script>
+    <script src="./assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="./assets/js/dashboard.js"></script>
+    <!-- End custom js for this page -->
+  </body>
+</html>

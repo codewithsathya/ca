@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Ambassador | Wissenaire'22</title>
+    <meta name="description" content="Wissenaire Campus Ambassador Program" />
+    <meta name="keywords" content="Wissenaire Campus Ambassador Program" />
+    <meta name="author" content="Wissenaire Web Team" />
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/4eaf9c6e31.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/modernizr.custom.js"></script>
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0&appId=458667779015054&autoLogAppEvents=1"
+      nonce="vtY4P3wx"
+    ></script>
+    <script>
+      AOS.init();
+    </script>
+    <div
+      id="large-header"
+      class="large-header"
+      style="height: 100%; z-index: -10000"
+    >
+      <canvas id="demo-canvas" width="99vh" height="90vh"></canvas>
+    </div>
+
+    <div class="container">
+      <ul id="gn-menu" class="gn-menu-main">
+        <li class="gn-trigger">
+          <a class="gn-icon gn-icon-menu" id="menu"></a>
+          <nav class="gn-menu-wrapper" id="menuWrapper">
+            <div class="nav-close" id="navClose">
+              <i class="fas fa-times"></i>
+            </div>
+            <div class="gn-scroller">
+              <ul class="gn-menu">
+                <li id="about">
+                  <a class="gn-icon gn-icon-archive"
+                    ><i class="fas fa-about"></i>About</a
+                  >
+                </li>
+                <li id="why">
+                  <a class="gn-icon gn-icon-help">Why?</a>
+                </li>
+                <li id="responsibility">
+                  <a class="gn-icon gn-icon-cog">Responsibility</a>
+                </li>
+                <li id="benefits">
+                  <a class="gn-icon gn-icon-download">Benefits</a>
+                </li>
+                <li id="eligibility">
+                  <a class="gn-icon gn-icon-article">Eligibility</a>
+                </li>
+              </ul>
+            </div>
+            <!-- /gn-scroller -->
+          </nav>
+        </li>
+        <li id="wissLogo">
+          <img src="./images/wissLogo2.png" />
+        </li>
+      </ul>
+      <header>
+        <h1>IIT BHUBANESWAR & WISSENAIRE<span>presents</span></h1>
+        <h1 class="main-heading-ca">CAMPUS AMBASSADOR</h1>
+
+        <div
+          id="fbLogin"
+          class="fb-login-button"
+          data-width=""
+          data-size="large"
+          data-button-type="continue_with"
+          data-layout="default"
+          data-auto-logout-link="false"
+          data-use-continue-as="true"
+          style="
+            text-align: center;
+            display: block;
+            margin: auto;
+            margin-top: 20px;
+            cursor: pointer;
+            z-index: 1;
+          "
+          onlogin="checkLoginState();"
+        ></div>
+      </header>
+
+      <div class="social-menu-mobile animate__animated animate__slideInUp">
+        <div class="social-item facebook animate__animated animate__fast">
+          <a href=""><i class="fa fa-facebook" style="color: #1773ea"></i></a>
+        </div>
+        <div class="social-item instagram animate__animated animate__fast">
+          <a href=""><i class="fab fa-instagram" style="color: #db3565"></i></a>
+        </div>
+        <div class="social-item facebook animate__animated animate__fast">
+          <a href=""><i class="fab fa-twitter" style="color: #1d9bf0"></i></a>
+        </div>
+        <div class="social-item youtube animate__animated animate__fast">
+          <a href=""><i class="fab fa-youtube" style="color: red"></i></a>
+        </div>
+        <div class="social-item linkedin animate__animated animate__fast">
+          <a href=""><i class="fab fa-linkedin" style="color: #0172b1"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- <ul
+      class="home-social d-md-none"
+      style="width: 100vw; margin-top: 63%; margin-left: 4.5vw !important"
+    >
+      <li style="display: inline-block">
+        <a
+          href="https://www.facebook.com/wissenaireiitbbs"
+          style="margin-left: 0"
+          ><i class="fab fa-facebook"></i><span>Facebook</span></a
+        >
+      </li>
+      <li style="display: inline-block">
+        <a
+          href="https://www.instagram.com/wissenaire.iitbbs/?hl=en"
+          style="margin-left: 0"
+          ><i class="fab fa-instagram" style="color: white"></i
+          ><span>Instagram</span></a
+        >
+      </li>
+      <li style="display: inline-block">
+        <a href="https://twitter.com/wissenaire21?s=08" style="margin-left: 0"
+          ><i class="fab fa-twitter" aria-hidden="true"></i
+          ><span>Twitter</span></a
+        >
+      </li>
+      <li style="display: inline-block">
+        <a
+          href="https://www.youtube.com/user/wissenaireiitbbs/featured"
+          style="margin-left: 0"
+          ><i class="fab fa-youtube" aria-hidden="true"></i
+          ><span>YouTube</span></a
+        >
+      </li>
+      <li style="display: inline-block">
+        <a
+          href="https://www.linkedin.com/company/wissenaire-iit-bhubaneswar/"
+          style="margin-left: 0"
+          ><i class="fab fa-linkedin-in" aria-hidden="true"></i
+          ><span>LinkedIn</span></a
+        >
+      </li>
+    </ul> -->
+
+    <div class="social-menu animate__animated animate__slideInRight">
+      <div class="social-item facebook animate__animated animate__fast">
+        <a href=""><i class="fa fa-facebook" style="color: #1773ea"></i></a>
+      </div>
+      <div class="social-item instagram animate__animated animate__fast">
+        <a href=""><i class="fab fa-instagram" style="color: #db3565"></i></a>
+      </div>
+      <div class="social-item facebook animate__animated animate__fast">
+        <a href=""><i class="fab fa-twitter" style="color: #1d9bf0"></i></a>
+      </div>
+      <div class="social-item youtube animate__animated animate__fast">
+        <a href=""><i class="fab fa-youtube" style="color: red"></i></a>
+      </div>
+      <div class="social-item linkedin animate__animated animate__fast">
+        <a href=""><i class="fab fa-linkedin" style="color: #0172b1"></i></a>
+      </div>
+    </div>
+
+    <div
+      class="page animate__animated animate__slideInRight animate__faster"
+      id="aboutPage"
+    >
+      <div class="page-close" id="aboutClose">
+        <i class="fas fa-times"></i>
+      </div>
+      <div class="about">
+        <div>
+          <h1>About Us</h1>
+          <p class="para">
+            WISSENAIRE is the Annual Techno-Management Fest of Indian Institute
+            of Technology, Bhubaneswar. Wissenaire is a Technical extravaganza
+            encompassing a multitude of events in the Scientific, Technical and
+            Managerial domains with a well-rounded collection of Competitions,
+            Workshops, Exhibitions, Star Nites, Quizzes, Colloquia, Lectures to
+            inspire Youth to embark on a journey of technical excellence,
+            creativity and innovation. It is indeed one of the most awaited
+            Fests in Eastern India.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="page animate__animated animate__slideInRight animate__faster"
+      id="whyPage"
+    >
+      <div class="page-close" id="whyClose">
+        <i class="fas fa-times"></i>
+      </div>
+      <div class="why">
+        <h1>Why become a CA?</h1>
+        <p class="para">
+          • CA's represent the fest outside IIT Bhubaneswar, and hence is an
+          opportunity to enhance your leadership skills. <br />
+          • It provides a great platform for students looking to improve their
+          managerial and communication skill set. <br />
+          • It helps you build connectivity with people from diverse fields
+          across the country. <br />
+          • It is a rare chance of exposure to thousands of young minds and
+          eminent personalities. <br />
+          • CA's get special access to a few selected events of the fest.
+          <br />
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="page animate__animated animate__slideInRight animate__faster"
+      id="responsibilityPage"
+    >
+      <div class="page-close" id="responsibilityClose">
+        <i class="fas fa-times"></i>
+      </div>
+      <div class="responsibility">
+        <h1>What should a CA do?</h1>
+        <p class="para">
+          • Promote the events, workshops and competitions by sharing those
+          details on Facebook timeline and college facebook and mail groups.
+          <br />
+          • Promoting events and workshops of WISSENAIRE in your respective
+          colleges (offline). <br />
+          • To strive to bring maximum participation from your respective
+          colleges.<br />
+          • To act as a medium for effective communication between the
+          Wissenaire team and your college.<br />
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="page animate__animated animate__slideInRight animate__faster"
+      id="benefitsPage"
+    >
+      <div class="page-close" id="benefitsClose">
+        <i class="fas fa-times"></i>
+      </div>
+      <div class="benefits">
+        <h1>What benefits does a CA get?</h1>
+        <p class="para">
+          CA's of Wissenaire’21 get the chance to work with the team of
+          Wissenaire’21, and to witness the work yield amazing results. <br />
+          Based on the following factors, CA's are awarded points:<br />
+           • 30 points- For each participant registered by the CA<br />
+           • 15 points- The number of CA's registered through them (by using
+          their referal ID)<br />
+           • 10 points- Online promotion activities i.e., sharing Wissenaire
+          Facebook posts.<br />
+           • 50 points- Sharing innovative ideas for further promotion.<br />
+           • 50 points- Adding to Wissenaire's connectivity by sharing useful
+          contacts. <br />
+          <br />
+          They will be further ranked according to the points gained and
+          classified into three categories as follows:<br />
+          • Rank 1-10: Diamond CA’s<br />
+          • Rank 11-40: Gold CA’s<br />
+          • Rank 41-100: Silver CA’s<br />
+          <br />
+          The Prizes or benefits for different classes of CA’s are as
+          follows:<br />
+          • Top 3 CA's : Prizes worth 5k + 50% off on summer training by
+          Wissenaire, IIT Bhubaneswar.<br />
+          • Diamond CA’s: Free Registration for any 4 events + Photos of CA will
+          be displayed in the website and social media + Certificate (Diamond)
+          from Wissenaire.<br />
+          • Gold CA’s: Free Registration for any 2 events + One’s name will be
+          mentioned in the website and social media + Certificate (Gold) from
+          Wissenaire.<br />
+          • Silver CA’s: T shirt + Certificate (Silver) from Wissenaire.<br />
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="page animate__animated animate__slideInRight animate__faster"
+      id="eligibilityPage"
+    >
+      <div class="page-close" id="eligibilityClose">
+        <i class="fas fa-times"></i>
+      </div>
+      <div class="eligibility">
+        <h1>Who can become CA?</h1>
+        <p class="para">
+          Students enrolled in any college and in any year can apply. All you
+          need is the will to build your personality and skills, and hence
+          contribute to making Wissenaire better by the year. Hurry up, and
+          register right away!
+        </p>
+      </div>
+    </div>
+
+    <!-- /container -->
+    <script src="js/main.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/gnmenu.js"></script>
+
+    <script src="https://tympanus.net/Development/AnimatedHeaderBackgrounds/js/TweenLite.min.js"></script>
+    <script src="https://tympanus.net/Development/AnimatedHeaderBackgrounds/js/EasePack.min.js"></script>
+    <script src="https://tympanus.net/Development/AnimatedHeaderBackgrounds/js/rAF.js"></script>
+    <script src="./js/background.js"></script>
+    <script>
+      new gnMenu(document.getElementById("gn-menu"));
+    </script>
+    <script>
+      function checkLoginState() {
+        window.location = "/auth/facebook";
+      }
+    </script>
+  </body>
+</html>

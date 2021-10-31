@@ -1,12 +1,14 @@
 const express = require("express");
+const axios = require("axios");
 const passport = require("passport");
 const FacebookStrategy = require("passport-facebook").Strategy;
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const session = require("cookie-session");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
+const config = require("./config/config.json");
 require("dotenv").config();
-const { Users, Posts } = require("./db/mongoConnection");
+// const { Users, Posts } = require("./db/mongoConnection");
 const indexRouter = require("./routes/index");
 
 const app = express();
@@ -23,7 +25,7 @@ passport.use(
     {
       clientID: process.env.FACEBOOK_APP_ID,
       clientSecret: process.env.FACEBOOK_APP_SECRET,
-      callbackURL: "https://ca-wissenaire.herokuapp.com/auth/facebook/callback",
+      callbackURL: "http://localhost:3000/auth/facebook/callback",
       profileFields: ["id", "displayName", "photos", "email"],
     },
     function (accessToken, refreshToken, profile, done) {
@@ -34,22 +36,36 @@ passport.use(
         let fbId = profile.id;
         let photo = profile.photos[0].value;
         try {
-          let postsDocs = await Posts.find();
+          // let postsDocs = await Posts.find();
+
+          let { data: postsDocs } = await axios.get(
+            config.mongoConnector + "/posts/find"
+          );
+          console.log(postsDocs);
           let posts = postsDocs.map((post) => post.postId);
-          let data = await Users.find({ email });
+          // let data = await Users.find({ email });
+          let { data } = await axios.post(
+            config.mongoConnector + "/users/find/email",
+            { email }
+          );
           console.log(data);
           if (data.length !== 0) {
             return done(null, profile);
           } else {
-            let userInfo = new Users({
-              email,
-              name,
-              fbId,
-              photo,
-              accessToken,
-              posts,
-            });
-            await Users.create(userInfo);
+            // let userInfo = new Users({
+            //   email,
+            //   name,
+            //   fbId,
+            //   photo,
+            //   accessToken,
+            //   posts,
+            // });
+            // await Users.create(userInfo);
+
+            let userInfo = {
+              email, name, fbId, photo, accessToken, posts
+            }
+            let {data: created} = await axios.post(config.mongoConnector + "/users/create", {userInfo});
             return done(null, profile);
           }
         } catch (error) {
@@ -112,7 +128,5 @@ app.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
 });
-
-
 
 module.exports = app;

@@ -1,12 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const {
-  Users,
-  Posts,
-  Contacts,
-  Ideates,
-  Sharecons,
-} = require("../db/mongoConnection");
+const axios = require("axios");
+const config = require("../config/config.json");
+// const {
+//   Users,
+//   Posts,
+//   Contacts,
+//   Ideates,
+//   Sharecons,
+// } = require("../db/mongoConnection");
 
 function ensureAuthenticated(req, res, next) {
   console.log(req.isAuthenticated);
@@ -19,7 +21,11 @@ function ensureAuthenticated(req, res, next) {
 async function ensureProfile(req, res, next) {
   console.log(req.user);
   try {
-    let data = await Users.find({ email: req.user.emails[0].value });
+    // let data = await Users.find({ email: req.user.emails[0].value });
+    let { data } = await axios.post(
+      config.mongoConnector + "/users/find/email",
+      { email: req.user.emails[0].value }
+    );
     if (data[0].wissId) return next();
     res.redirect("/profile");
   } catch (error) {
@@ -28,7 +34,7 @@ async function ensureProfile(req, res, next) {
 }
 
 router.get("/", (req, res) => {
-  res.render("index");
+  res.render("index", {appId: process.env.FACEBOOK_APP_ID});
 });
 
 router.get(
@@ -36,7 +42,11 @@ router.get(
   ensureAuthenticated,
   ensureProfile,
   async (req, res, next) => {
-    let data = await Users.find({ email: req.user.emails[0].value });
+    // let data = await Users.find({ email: req.user.emails[0].value });
+    let { data } = await axios.post(
+      config.mongoConnector + "/users/find/email",
+      { email: req.user.emails[0].value }
+    );
     console.log(data);
     res.render("home", {
       participant: { name: data[0].name, photo: data[0].photo },
@@ -46,7 +56,11 @@ router.get(
 
 router.get("/profile", ensureAuthenticated, async (req, res, next) => {
   try {
-    let data = await Users.find({ email: req.user.emails[0].value });
+    // let data = await Users.find({ email: req.user.emails[0].value });
+    let { data } = await axios.post(
+      config.mongoConnector + "/users/find/email",
+      { email: req.user.emails[0].value }
+    );
     console.log(data[0]);
     res.render("profile", { participant: data[0] });
   } catch (error) {
@@ -58,13 +72,22 @@ router.post("/profile", async (req, res, next) => {
   let userDoc;
   if (req.body.howca === "Through a registered CA" || req.body.refca) {
     try {
-      userDoc = await Users.findOne({ email: req.user.emails[0].value });
+      // userDoc = await Users.findOne({ email: req.user.emails[0].value });
+      let { data: userDocTemp } = await axios.post(
+        config.mongoConnector + "/users/findOne/email",
+        { email: req.user.emails[0].value }
+      );
+      userDoc = userDocTemp;
       if (userDoc.wissId) {
         res.redirect("/profile");
       }
-      const reffDoc = await Users.findOne({
-        wissId: req.body.refca.toLowerCase(),
-      });
+      // const reffDoc = await Users.findOne({
+      //   wissId: req.body.refca.toLowerCase(),
+      // });
+      let { data: reffDoc } = await axios.post(
+        config.mongoConnector + "/users/findOne/wissId",
+        { wissId: req.body.refca.toLowerCase() }
+      );
       userDoc.wissId = req.body.wissId.toLowerCase();
       userDoc.email2 = req.body.email2.toLowerCase();
       userDoc.phoneNumber = req.body.phone;
@@ -78,20 +101,32 @@ router.post("/profile", async (req, res, next) => {
       if (reffDoc && reffDoc.wissId) {
         let points = reffDoc.points + 15;
         reffDoc.points = points;
-        await reffDoc.save();
+        // await reffDoc.save();
+        let { data: reffSaved } = await axios.post(
+          config.mongoConnector + "/users/findOneAndUpdate/wissId",
+          { userDoc: reffDoc }
+        );
       } else {
         console.log("Refferal doesn't exist");
         res.redirect("/profile?error=reffErr");
         return;
       }
 
-      await userDoc.save();
+      // await userDoc.save();
+      let { data: userSaved } = await axios.post(
+        config.mongoConnector + "/users/findOneAndUpdate/email",
+        { userDoc }
+      );
     } catch (error) {
       throw error;
     }
   } else if (req.body.ref) {
     try {
-      userDoc = await Users.findOne({ email: req.user.emails[0].value });
+      // userDoc = await Users.findOne({ email: req.user.emails[0].value });
+      let { data: userDoc } = await axios.post(
+        config.mongoConnector + "/users/findOne/email",
+        { email: req.user.emails[0].value }
+      );
       if (userDoc.wissId) {
         res.redirect("/profile");
         return;
@@ -106,13 +141,21 @@ router.post("/profile", async (req, res, next) => {
       userDoc.whyCA = req.body.whyca;
       userDoc.howCA = req.body.howca;
       userDoc.refferalId = req.body.ref.toLowerCase();
-      await userDoc.save();
+      // await userDoc.save();
+      let { data: userSaved } = await axios.post(
+        config.mongoConnector + "/users/findOneAndUpdate/email",
+        { userDoc }
+      );
     } catch (error) {
       throw error;
     }
   } else {
     try {
-      userDoc = await Users.findOne({ email: req.user.emails[0].value });
+      // userDoc = await Users.findOne({ email: req.user.emails[0].value });
+      let { data: userDoc } = await axios.post(
+        config.mongoConnector + "/users/findOne/email",
+        { email: req.user.emails[0].value }
+      );
       if (userDoc.wissId) {
         res.redirect("/profile");
         return;
@@ -127,7 +170,11 @@ router.post("/profile", async (req, res, next) => {
       userDoc.whyCA = req.body.whyca;
       userDoc.howCA = req.body.howca;
       userDoc.refferalId = "";
-      await userDoc.save();
+      // await userDoc.save();
+      let { data: userSaved } = await axios.post(
+        config.mongoConnector + "/users/findOneAndUpdate/email",
+        { userDoc }
+      );
     } catch (error) {
       throw error;
     }
@@ -138,7 +185,11 @@ router.post("/profile", async (req, res, next) => {
 router.put("/wissId/:id", async (req, res, next) => {
   let wissId = req.params.id.toLowerCase();
   try {
-    let reffDoc = await Users.findOne({ wissId });
+    // let reffDoc = await Users.findOne({ wissId });
+    const { data: reffDoc } = await axios.post(
+      config.mongoConnector + "/users/findOne/wissId",
+      { wissId }
+    );
     if (reffDoc) {
       res.send(reffDoc.name);
     } else {
@@ -155,7 +206,11 @@ router.get(
   ensureProfile,
   async (req, res, next) => {
     try {
-      let userDoc = await Users.findOne({ email: req.user.emails[0].value });
+      // let userDoc = await Users.findOne({ email: req.user.emails[0].value });
+      let { data: userDoc } = await axios.post(
+        config.mongoConnector + "/users/findOne/email",
+        { email: req.user.emails[0].value }
+      );
       res.render("fbshare", { participant: userDoc, posts: userDoc.posts });
     } catch (error) {}
   }
@@ -166,21 +221,34 @@ router.get("/post", (req, res) => {
 });
 
 router.post("/addpost", async (req, res) => {
-  let newPost = new Posts({
-    postId: req.body.postid,
-  });
-  await Posts.create(newPost);
-  let users = await Users.find();
+  // let newPost = new Posts({
+  //   postId: req.body.postid,
+  // });
+  // await Posts.create(newPost);
+  let { data: postCreated } = await axios.post(
+    config.mongoConnector + "/posts/create",
+    { postId: req.body.postid }
+  );
+  // let users = await Users.find();
+  let { data: users } = await axios.get(config.mongoConnector + "/users/find");
   for (let i in users) {
     users[i].posts.push(req.body.postid);
   }
-  await Users.bulkSave(users);
+  // await Users.bulkSave(users);
+  let { data: usersBulkSaved } = await axios.post(
+    config.mongoConnector + "/users/bulkSave",
+    { users }
+  );
   res.redirect("/post");
 });
 
 router.get("/contact", ensureAuthenticated, async (req, res, next) => {
   try {
-    let userDoc = await Users.findOne({ email: req.user.emails[0].value });
+    // let userDoc = await Users.findOne({ email: req.user.emails[0].value });
+    let { data: userDoc } = await axios.post(
+      config.mongoConnector + "/users/findOne/email",
+      { email: req.user.emails[0].value }
+    );
     res.render("contact", { participant: userDoc });
   } catch (error) {
     throw error;
@@ -193,13 +261,23 @@ router.post("/contact", async (req, res, next) => {
     let message = req.body.message;
     let email = req.body.email;
     let wissId = req.body.wissId;
-    let contact = new Contacts({
+    // let contact = new Contacts({
+    //   subject,
+    //   message,
+    //   email,
+    //   wissId,
+    // });
+    let contact = {
       subject,
       message,
       email,
       wissId,
-    });
-    await Contacts.create(contact);
+    };
+    // await Contacts.create(contact);
+    let { data: contactCreated } = await axios.post(
+      config.mongoConnector + "/contacts/create",
+      { contact }
+    );
     res.redirect("/contact?success=true");
     return;
   } catch (error) {
@@ -212,7 +290,11 @@ router.get(
   ensureAuthenticated,
   ensureProfile,
   async (req, res, next) => {
-    let userDoc = await Users.findOne({ email: req.user.emails[0].value });
+    // let userDoc = await Users.findOne({ email: req.user.emails[0].value });
+    let { data: userDoc } = await axios.post(
+      config.mongoConnector + "/users/findOne/email",
+      { email: req.user.emails[0].value }
+    );
     res.render("ideate", { participant: userDoc });
   }
 );
@@ -227,8 +309,13 @@ router.post(
       let idea = req.body.idea;
       let wissId = req.body.wissId;
       let email = req.body.email;
-      let ideate = new Ideates({ field, idea, wissId, email });
-      await Ideates.create(ideate);
+      // let ideate = new Ideates({ field, idea, wissId, email });
+      let ideate = { field, idea, wissId, email };
+      // await Ideates.create(ideate);
+      let { data: ideateCreated } = await axios.post(
+        config.mongoConnector + "/ideate/create",
+        { ideate }
+      );
       res.redirect("/ideate?success=true");
       console.log("headfasdfasdfasdfasdfa");
       return;
@@ -243,7 +330,11 @@ router.get(
   ensureAuthenticated,
   ensureProfile,
   async (req, res, next) => {
-    let userDoc = await Users.findOne({ email: req.user.emails[0].value });
+    // let userDoc = await Users.findOne({ email: req.user.emails[0].value });
+    let { data: userDoc } = await axios.post(
+      config.mongoConnector + "/users/findOne/email",
+      { email: req.user.emails[0].value }
+    );
     res.render("sharecontact", { participant: userDoc });
   }
 );
@@ -258,13 +349,23 @@ router.post(
       let contact = req.body.contact;
       let wissId = req.body.wissId;
       let email = req.body.email;
-      let sharecon = new Sharecons({
+      // let sharecon = new Sharecons({
+      //   type,
+      //   contact,
+      //   wissId,
+      //   email,
+      // });
+      let sharecon = {
         type,
         contact,
         wissId,
         email,
-      });
-      await Sharecons.create(sharecon);
+      };
+      // await Sharecons.create(sharecon);
+      let { data: sharconCreated } = await axios.post(
+        config.mongoConnector + "/sharecon/create",
+        { sharecon }
+      );
       res.redirect("/sharecon?success=true");
       return;
     } catch (error) {
@@ -279,8 +380,19 @@ router.get(
   ensureProfile,
   async (req, res, next) => {
     try {
-      let userDoc = await Users.findOne({ email: req.user.emails[0].value });
-      let allUserDocs = await Users.find();
+      // let userDoc = await Users.findOne({ email: req.user.emails[0].value });
+      let { data: userDoc } = await axios.post(
+        config.mongoConnector + "/users/findOne/email",
+        { email: req.user.emails[0].value }
+      );
+      // let allUserDocs = await Users.find();
+      let { data: allUserDocs } = await axios.get(
+        config.mongoConnector + "/users/find"
+      );
+      allUserDocs = allUserDocs.filter((userDoc) => {
+        return userDoc.wissId;
+      })
+      console.log(userDoc)
       console.log(allUserDocs);
       allUserDocs.sort((a, b) => b.points - a.points);
 
@@ -304,7 +416,11 @@ router.post(
     try {
       let postId = req.body.postId;
       let wissId = req.body.wissId;
-      let userDoc = await Users.findOne({ wissId });
+      // let userDoc = await Users.findOne({ wissId });
+      let { data: userDoc } = await axios.post(
+        config.mongoConnector + "/users/findOne/wissId",
+        { wissId }
+      );
       if (userDoc.posts.includes(postId)) {
         let points = userDoc.points + 10;
         userDoc.points = points;
@@ -312,7 +428,11 @@ router.post(
         if (index > -1) {
           userDoc.posts.splice(index, 1);
         }
-        await userDoc.save();
+        // await userDoc.save();
+        let { data: userSaved } = await axios.post(
+          config.mongoConnector + "/users/findOneAndUpdate/email",
+          { userDoc }
+        );
         res.sendStatus(200);
         return;
       } else {
@@ -331,6 +451,6 @@ router.get("/privacypolicy", (req, res) => {
 
 router.get("/datadeletion", (req, res) => {
   res.render("dataDeletion");
-})
+});
 
 module.exports = router;

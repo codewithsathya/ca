@@ -23,7 +23,7 @@ passport.use(
     {
       clientID: process.env.FACEBOOK_APP_ID,
       clientSecret: process.env.FACEBOOK_APP_SECRET,
-      callbackURL: "https://ca.wissenaire.org/auth/facebook/callback",
+      callbackURL: "https://ca-wissenaire.herokuapp.com/auth/facebook/callback",
       profileFields: ["id", "displayName", "photos", "email"],
     },
     function (accessToken, refreshToken, profile, done) {

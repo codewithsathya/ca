@@ -8,10 +8,13 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const config = require("./config/config.json");
 require("dotenv").config();
+const cors = require("cors");
 // const { Users, Posts } = require("./db/mongoConnection");
 const indexRouter = require("./routes/index");
 
 const app = express();
+
+app.use(cors());
 
 passport.serializeUser((user, done) => {
   done(null, user);
@@ -25,7 +28,7 @@ passport.use(
     {
       clientID: process.env.FACEBOOK_APP_ID,
       clientSecret: process.env.FACEBOOK_APP_SECRET,
-      callbackURL: "https://ca.wissenaire.org/auth/facebook/callback",
+      callbackURL: process.env.CALLBACK_URL,
       profileFields: ["id", "displayName", "photos", "email"],
     },
     function (accessToken, refreshToken, profile, done) {

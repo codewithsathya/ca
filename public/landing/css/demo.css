@@ -36,8 +36,8 @@ body {
 	position: absolute;
 	/* background-color: yellow; */
 	/* z-index: 100; */
-	top: 90vh;
-	width: 100vw;
+	top: 90%;
+	width: 100%;
 	justify-content: center;
 	align-items: center;
 }
@@ -50,9 +50,11 @@ body {
 .social-menu {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   /* background-color: yellow; */
+  height: 100%;
   position: absolute;
-  top: 30vh;
+  top: 0vh;
   left: 94vw;
 }
 
@@ -214,6 +216,11 @@ body {
   color: #ffaa71;
 }
 
+.container {
+  height: 100% !important;
+
+}
+
 .container > header,
 .codrops-top {
   color: #fff;
@@ -229,6 +236,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100% !important;
 }
 
 .container > header a {

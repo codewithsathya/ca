@@ -27,6 +27,7 @@ passport.use(
       profileFields: ["id", "displayName", "photos", "email"],
     },
     function (accessToken, refreshToken, profile, done) {
+      console.log(profile);
       let email = profile.emails[0].value;
       let name = profile.displayName;
       let fbId = profile.id;

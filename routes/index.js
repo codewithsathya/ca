@@ -329,4 +329,8 @@ router.get("/privacypolicy", (req, res) => {
   res.render("privacypolicy");
 });
 
+router.get("/datadeletion", (req, res) => {
+  res.render("dataDeletion");
+})
+
 module.exports = router;

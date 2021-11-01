@@ -27,9 +27,18 @@
       .content-wrapper {
         padding: 10vh;
       }
+      @media screen and (max-width: 700px){
+        .content-wrapper {
+          padding: 10px;
+        }
+      }
     </style>
     <!-- End layout styles -->
         <link rel="shortcut icon" href="./images/wiss.ico" />
+        <script
+      src="https://kit.fontawesome.com/4eaf9c6e31.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div id="fb-root"></div>
@@ -155,7 +164,7 @@
         </nav>
         <!-- top -->
         <div class="main-panel">
-          <div class="content-wrapper">
+          <div class="content-wrapper" style="min-width: fit-content;">
             * Shares made only from this page will be considered. <br>
             * To share a particular post, hit the facebook icon under the post. Sharing the post using the share button on facebook frame will not be considered.<br>
             * Using laptop/pc is recommended<br>
@@ -163,17 +172,14 @@
             
             <% for(var i = 0; i < posts.length; i++){
              %> 
-            <div class="post" style="max-width:500px; padding-top: 2em; display:block; margin:auto;">
+            <div class="post" style="max-width:800px; width: fit-content; padding-top: 2em; display:flex; margin:auto; flex-direction: column;">
               <script>console.log("<%=posts[i]%>")</script>
-              <div class="fb-post" data-href="https://www.facebook.com/wissenaireiitbbs/posts/<%=posts[i]%>" data-width="500" data-show-text="true" style="">
+              <div class="fb-post" data-href="https://www.facebook.com/wissenaireiitbbs/posts/<%=posts[i]%>" data-width="500" data-show-text="true" style="background-color: white;">
               </div>              
               
-              <div class="share-btn" style="width:42px; padding-top:1em; display: block; margin:auto;">
-                <button id="sharebtn<%=posts[i]%>" style="background-color: transparent; border: none; padding: 0px; font: inherit; color: inherit;">
-                  <svg viewBox="0 0 64 64" width="42" height="42">
-                    <circle cx="32" cy="32" r="31" fill="#3b5998"></circle>
-                    <path d="M34.1,47V33.3h4.6l0.7-5.3h-5.3v-3.4c0-1.5,0.4-2.6,2.6-2.6l2.8,0v-4.8c-0.5-0.1-2.2-0.2-4.1-0.2 c-4.1,0-6.9,2.5-6.9,7V28H24v5.3h4.6V47H34.1z" fill="white"></path>
-                  </svg>
+              <div class="share-btn" style="width:fit-content; padding-top:1em; display: block; margin:auto;">
+                <button id="sharebtn<%=posts[i]%>" class="btn btn-primary btn-lg" style="border-radius: 10px;">
+                  <i class="fas fa-share"></i><span style="font-size: large;">Share</span>
                 </button>
               </div>
 

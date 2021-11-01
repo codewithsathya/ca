@@ -31,13 +31,13 @@ passport.use(
       callbackURL: process.env.CALLBACK_URL,
       profileFields: ["id", "displayName", "photos", "email"],
     },
-    function (accessToken, refreshToken, profile, done) {
+    async function (accessToken, refreshToken, profile, done) {
       let email = profile.emails[0].value;
       let name = profile.displayName;
       let fbId = profile.id;
       let photo = profile.photos[0].value;
       console.log(profile);
-      process.nextTick(async () => {
+      // process.nextTick(async () => {
         try {
           // let postsDocs = await Posts.find();
 
@@ -75,7 +75,7 @@ passport.use(
           console.log(error);
           throw error;
         }
-      });
+      // });
     }
   )
 );

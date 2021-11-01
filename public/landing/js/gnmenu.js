@@ -98,7 +98,7 @@
       this.isMenuOpen = false;
       classie.remove(this.menu, "gn-open-all");
       this._closeIconMenu();
-        document.getElementById("fbLogin").style.zIndex = 1;
+      document.getElementById("fbLogin").style.zIndex = 1;
     },
   };
 

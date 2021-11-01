@@ -150,6 +150,7 @@ body {
   color: white;
   background-color: tomato;
   display: none;
+  z-index: 100;
 }
 
 #navClose {

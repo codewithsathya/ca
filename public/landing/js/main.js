@@ -73,6 +73,10 @@ function enableFb() {
   fbLogin.style.zIndex = 1;
 }
 
+function disableFb() {
+  fbLogin.style.zIndex = -1;
+}
+
 let socialElements = document.getElementsByClassName("social-item");
 
 for(let item of socialElements) {

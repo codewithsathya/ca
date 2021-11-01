@@ -25,7 +25,7 @@
 
     // svg fallback
     if (!Modernizr.svg) {
-        $(".home-logo img").attr("src", "images/logo.png");
+        $(".home-logo img").attr("src", "images/wissLogo2.png");
     }
 
 

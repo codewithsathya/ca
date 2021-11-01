@@ -97,6 +97,7 @@ router.post("/profile", async (req, res, next) => {
       userDoc.city = req.body.city;
       userDoc.whyCA = req.body.whyca;
       userDoc.howCA = req.body.howca;
+      userDoc.points = 30;
       userDoc.refferalId = req.body.refca.toLowerCase();
       if (reffDoc && reffDoc.wissId) {
         let points = reffDoc.points + 15;
@@ -216,31 +217,36 @@ router.get(
   }
 );
 
-router.get("/post", (req, res) => {
-  res.render("addpost");
-});
+// router.get("/post", (req, res) => {
+//   res.render("addpost");
+// });
 
-router.post("/addpost", async (req, res) => {
-  // let newPost = new Posts({
-  //   postId: req.body.postid,
-  // });
-  // await Posts.create(newPost);
-  let { data: postCreated } = await axios.post(
-    config.mongoConnector + "/posts/create",
-    { postId: req.body.postid }
-  );
-  // let users = await Users.find();
-  let { data: users } = await axios.get(config.mongoConnector + "/users/find");
-  for (let i in users) {
-    users[i].posts.push(req.body.postid);
-  }
-  // await Users.bulkSave(users);
-  let { data: usersBulkSaved } = await axios.post(
-    config.mongoConnector + "/users/bulkSave",
-    { users }
-  );
-  res.redirect("/post");
-});
+// router.post("/addpost", async (req, res) => {
+//   // let newPost = new Posts({
+//   //   postId: req.body.postid,
+//   // });
+//   // await Posts.create(newPost);
+//   try {
+//     let { data: postCreated } = await axios.post(
+//       config.mongoConnector + "/posts/create",
+//       { postId: req.body.postid }
+//     );
+//     // let users = await Users.find();
+//     let { data: users } = await axios.get(config.mongoConnector + "/users/find");
+//     for (let i in users) {
+//       users[i].posts.push(req.body.postid);
+//     }
+//     console.log(users);
+//     // await Users.bulkSave(users);
+//     let { data: usersBulkSaved } = await axios.post(
+//       config.mongoConnector + "/users/bulkSave",
+//       { users }
+//     );
+//     res.redirect("/post");
+//   } catch (error) {
+//     throw error;
+//   }
+// });
 
 router.get("/contact", ensureAuthenticated, async (req, res, next) => {
   try {

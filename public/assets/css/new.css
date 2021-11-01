@@ -1,0 +1,12 @@
+label {
+	letter-spacing: 1px;
+}
+
+h2 {
+	letter-spacing: 2px;
+}
+
+input {
+	letter-spacing: 1px;
+	font-size: 1rem !important;
+}

@@ -11,6 +11,7 @@ require("dotenv").config();
 const cors = require("cors");
 // const { Users, Posts } = require("./db/mongoConnection");
 const indexRouter = require("./routes/index");
+const httpsRedirect = require("express-https-redirect");
 
 const app = express();
 
@@ -107,13 +108,13 @@ app.use(session({ secret: "shizou sasageyo", key: "aot" }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(__dirname + "/public"));
-app.use(function (req, res, next) {
-  if (!req.secure) {
-    return res.redirect("https://" + req.headers.host + req.url);
-  }
-  next();
-});
-app.use("/", indexRouter);
+// app.use(function (req, res, next) {
+//   if (!req.secure) {
+//     return res.redirect("https://" + req.headers.host + req.url);
+//   }
+//   next();
+// });
+app.use("/",httpsRedirect(true), indexRouter);
 //passport
 app.get(
   "/auth/facebook",

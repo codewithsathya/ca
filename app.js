@@ -107,9 +107,9 @@ app.use(session({ secret: "shizou sasageyo", key: "aot" }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(__dirname + "/public"));
-app.use (function (req, res, next) {
+app.use(function (req, res, next) {
   if (!req.secure) {
-    return response.redirect("https://" + req.headers.host + req.url);
+    return res.redirect("https://" + req.headers.host + req.url);
   }
   next();
 });

@@ -21,6 +21,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.2.0/tailwind.min.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="./assets/images/logo-mini.png" />
+    <!-- <style>
+      .form-group label {
+        font-size: 1rem;
+        padding-top: 0.5rem;
+      }
+      .hidden {
+        display: none;
+      }
+
+      input,
+      select,
+      textarea {
+        color: white !important;
+      }
+
+      
+    </style> -->
   </head>
   <body>
     <div class="container-scroller">
@@ -158,19 +175,35 @@
               <div class="">
                 <form method="post">
                 <div>
-                  <span class="uppercase text-sm text-gray-600 font-bold">Type</span>
-                  <select class="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" name="type">
-                    <option value="Participant">Participant</option>
-                    <option value="Publicity">Publicity partner</option>
-                    <option value="Marketing">Marketing partner</option>
-                    <option value="Events">Events partner</option>
-                  </select>
+                  <span class="uppercase text-sm text-gray-600 font-bold">Name</span>
+                  <input
+                        type="text"
+                        class="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                        name="type"
+                        placeholder=""
+                        required
+                      />
                 </div>
                 
                 <div class="mt-8">
                   <span class="uppercase text-sm text-gray-600 font-bold">Contact</span>
-                  <input
-                    class="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" name="contact" required></input>
+                  <!-- <input
+                    class="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" name="contact" required></input> -->
+                    <textarea
+                      class="
+                        w-full
+                        h-32
+                        bg-gray-300
+                        text-gray-900
+                        mt-2
+                        p-3
+                        rounded-lg
+                        focus:outline-none focus:shadow-outline
+                      "
+                      name="contact"
+                      placeholder="Enter the contact details of the person that is willing to participate or promote the fest in their college."
+                      required
+                    ></textarea>
                 </div>
                 <div class="mt-8">
                   <button

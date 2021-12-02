@@ -37,7 +37,7 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="./assets/css/style.css" />
     <!-- End layout styles -->
-        <link rel="shortcut icon" href="./images/wiss.ico" />
+    <link rel="shortcut icon" href="./images/wiss.ico" />
 
     <link
       rel="stylesheet"
@@ -226,33 +226,33 @@
               "
             >
               <div class="flex flex-col justify-between">
-                <div class="mt-0 text-center" style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center; height: fit-content;">
-                  <img src="./images/ideate.svg" style="height: 70%;" />
+                <div
+                  class="mt-0 text-center"
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: center;
+                    height: fit-content;
+                  "
+                >
+                  <img src="./images/ideate.svg" style="height: 70%" />
                 </div>
               </div>
               <div class="">
                 <form method="post">
-                  <div class="mt-5">
+                  <!-- <div class="mt-5">
                     <span class="uppercase text-sm text-gray-600 font-bold"
                       >Field</span
                     >
-                    <select
-                      class="
-                        w-full
-                        bg-gray-300
-                        text-gray-900
-                        mt-2
-                        p-3
-                        rounded-lg
-                        focus:outline-none focus:shadow-outline
-                      "
-                      name="field"
-                    >
-                      <option value="Publicity">Publicity</option>
-                      <option value="Marketing">Marketing</option>
-                      <option value="Events">Events and Management</option>
-                    </select>
-                  </div>
+                    <input
+                      type="text"
+                      class="form-control form-control-lg"
+                      name="city"
+                      placeholder=""
+                      required
+                    />
+                  </div> -->
 
                   <div class="mt-8">
                     <span class="uppercase text-sm text-gray-600 font-bold"
@@ -270,6 +270,7 @@
                         focus:outline-none focus:shadow-outline
                       "
                       name="idea"
+                      placeholder="Describe your idea here to promote the fest."
                       required
                     ></textarea>
                   </div>
@@ -289,7 +290,7 @@
                       "
                       id="submit"
                     >
-                      Send Message
+                      Submit
                     </button>
                   </div>
                 </form>
@@ -373,7 +374,7 @@
             url: "/ideate",
             type: "POST",
             data: {
-              field: field,
+              field: "nill",
               idea: idea,
               wissId: "<%=participant.wissId%>",
               email: "<%=participant.email%>",

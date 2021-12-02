@@ -180,7 +180,7 @@ router.post("/profile", async (req, res, next) => {
       throw error;
     }
   }
-  res.redirect("/profile");
+  res.redirect("/profile?message=true");
 });
 
 router.put("/wissId/:id", async (req, res, next) => {

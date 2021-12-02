@@ -597,6 +597,18 @@
     <!-- Custom js for this page -->
     <script src="./assets/js/dashboard.js"></script>
     <script>
+      let urlString = window.location.href;
+      let url = new URL(urlString);
+      let sent = url.searchParams.get("message");
+      if (sent) {
+        new swal({
+          title: "Thank you",
+          text: "Our team will contact you in the next 24hrs.",
+          icon: "success",
+        });
+      }
+    </script>
+    <script>
       $(document).ready(function () {
         $(".reg").change(function () {
           console.log("changed");

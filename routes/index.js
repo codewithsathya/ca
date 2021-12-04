@@ -22,6 +22,10 @@ async function ensureProfile(req, res, next) {
   console.log(req.user);
   try {
     // let data = await Users.find({ email: req.user.emails[0].value });
+    if(!req.user.emails) {
+      res.redirect("/?emailError=true")
+      return;
+    }
     let { data } = await axios.post(
       config.mongoConnector + "/users/find/email",
       { email: req.user.emails[0].value }

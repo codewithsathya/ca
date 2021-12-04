@@ -33,7 +33,12 @@ passport.use(
       profileFields: ["id", "displayName", "photos", "email"],
     },
     async function (accessToken, refreshToken, profile, done) {
-      let email = profile.emails[0].value;
+      let email;
+      if(!profile.emails){
+        email = profile.id;
+      }else {
+        email = profile.emails[0].value;
+      }
       let name = profile.displayName;
       let fbId = profile.id;
       let photo = profile.photos[0].value;

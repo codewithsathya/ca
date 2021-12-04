@@ -10,6 +10,16 @@ const config = require("../config/config.json");
 //   Sharecons,
 // } = require("../db/mongoConnection");
 
+function getGmail(req){
+  let email;
+  if(!req.user.emails){
+    email = req.user.id;
+  }else{
+    email = getGmail(req);
+  }
+  return email;
+}
+
 function ensureAuthenticated(req, res, next) {
   console.log(req.isAuthenticated);
   if (req.isAuthenticated()) {
@@ -21,14 +31,14 @@ function ensureAuthenticated(req, res, next) {
 async function ensureProfile(req, res, next) {
   console.log(req.user);
   try {
-    // let data = await Users.find({ email: req.user.emails[0].value });
-    if(!req.user.emails) {
-      res.redirect("/?emailError=true")
-      return;
-    }
+    // let data = await Users.find({ email: getGmail(req) });
+    // if(!req.user.emails) {
+    //   res.redirect("/?emailError=true")
+    //   return;
+    // }
     let { data } = await axios.post(
       config.mongoConnector + "/users/find/email",
-      { email: req.user.emails[0].value }
+      { email: getGmail(req) }
     );
     if (data[0].wissId) return next();
     res.redirect("/profile");
@@ -46,10 +56,10 @@ router.get(
   ensureAuthenticated,
   ensureProfile,
   async (req, res, next) => {
-    // let data = await Users.find({ email: req.user.emails[0].value });
+    // let data = await Users.find({ email: getGmail(req) });
     let { data } = await axios.post(
       config.mongoConnector + "/users/find/email",
-      { email: req.user.emails[0].value }
+      { email: getGmail(req) }
     );
     console.log(data);
     res.render("home", {
@@ -60,10 +70,10 @@ router.get(
 
 router.get("/profile", ensureAuthenticated, async (req, res, next) => {
   try {
-    // let data = await Users.find({ email: req.user.emails[0].value });
+    // let data = await Users.find({ email: getGmail(req) });
     let { data } = await axios.post(
       config.mongoConnector + "/users/find/email",
-      { email: req.user.emails[0].value }
+      { email: getGmail(req) }
     );
     console.log(data[0]);
     res.render("profile", { participant: data[0] });
@@ -76,10 +86,10 @@ router.post("/profile", async (req, res, next) => {
   let userDoc;
   if (req.body.howca === "Through a registered CA" || req.body.refca) {
     try {
-      // userDoc = await Users.findOne({ email: req.user.emails[0].value });
+      // userDoc = await Users.findOne({ email: getGmail(req) });
       let { data: userDocTemp } = await axios.post(
         config.mongoConnector + "/users/findOne/email",
-        { email: req.user.emails[0].value }
+        { email: getGmail(req) }
       );
       userDoc = userDocTemp;
       if (userDoc.wissId) {
@@ -127,10 +137,10 @@ router.post("/profile", async (req, res, next) => {
     }
   } else if (req.body.ref) {
     try {
-      // userDoc = await Users.findOne({ email: req.user.emails[0].value });
+      // userDoc = await Users.findOne({ email: getGmail(req) });
       let { data: userDoc } = await axios.post(
         config.mongoConnector + "/users/findOne/email",
-        { email: req.user.emails[0].value }
+        { email: getGmail(req) }
       );
       if (userDoc.wissId) {
         res.redirect("/profile");
@@ -156,10 +166,10 @@ router.post("/profile", async (req, res, next) => {
     }
   } else {
     try {
-      // userDoc = await Users.findOne({ email: req.user.emails[0].value });
+      // userDoc = await Users.findOne({ email: getGmail(req) });
       let { data: userDoc } = await axios.post(
         config.mongoConnector + "/users/findOne/email",
-        { email: req.user.emails[0].value }
+        { email: getGmail(req) }
       );
       if (userDoc.wissId) {
         res.redirect("/profile");
@@ -211,10 +221,10 @@ router.get(
   ensureProfile,
   async (req, res, next) => {
     try {
-      // let userDoc = await Users.findOne({ email: req.user.emails[0].value });
+      // let userDoc = await Users.findOne({ email: getGmail(req) });
       let { data: userDoc } = await axios.post(
         config.mongoConnector + "/users/findOne/email",
-        { email: req.user.emails[0].value }
+        { email: getGmail(req) }
       );
       res.render("fbshare", { participant: userDoc, posts: userDoc.posts });
     } catch (error) {}
@@ -254,10 +264,10 @@ router.get(
 
 router.get("/contact", ensureAuthenticated, async (req, res, next) => {
   try {
-    // let userDoc = await Users.findOne({ email: req.user.emails[0].value });
+    // let userDoc = await Users.findOne({ email: getGmail(req) });
     let { data: userDoc } = await axios.post(
       config.mongoConnector + "/users/findOne/email",
-      { email: req.user.emails[0].value }
+      { email: getGmail(req) }
     );
     res.render("contact", { participant: userDoc });
   } catch (error) {
@@ -300,10 +310,10 @@ router.get(
   ensureAuthenticated,
   ensureProfile,
   async (req, res, next) => {
-    // let userDoc = await Users.findOne({ email: req.user.emails[0].value });
+    // let userDoc = await Users.findOne({ email: getGmail(req) });
     let { data: userDoc } = await axios.post(
       config.mongoConnector + "/users/findOne/email",
-      { email: req.user.emails[0].value }
+      { email: getGmail(req) }
     );
     res.render("ideate", { participant: userDoc });
   }
@@ -340,10 +350,10 @@ router.get(
   ensureAuthenticated,
   ensureProfile,
   async (req, res, next) => {
-    // let userDoc = await Users.findOne({ email: req.user.emails[0].value });
+    // let userDoc = await Users.findOne({ email: getGmail(req) });
     let { data: userDoc } = await axios.post(
       config.mongoConnector + "/users/findOne/email",
-      { email: req.user.emails[0].value }
+      { email: getGmail(req) }
     );
     res.render("sharecontact", { participant: userDoc });
   }
@@ -390,10 +400,10 @@ router.get(
   ensureProfile,
   async (req, res, next) => {
     try {
-      // let userDoc = await Users.findOne({ email: req.user.emails[0].value });
+      // let userDoc = await Users.findOne({ email: getGmail(req) });
       let { data: userDoc } = await axios.post(
         config.mongoConnector + "/users/findOne/email",
-        { email: req.user.emails[0].value }
+        { email: getGmail(req) }
       );
       // let allUserDocs = await Users.find();
       let { data: allUserDocs } = await axios.get(

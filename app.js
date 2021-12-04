@@ -38,7 +38,7 @@ passport.use(
       let fbId = profile.id;
       let photo = profile.photos[0].value;
       console.log(profile);
-      // process.nextTick(async () => {
+      process.nextTick(async () => {
         try {
           // let postsDocs = await Posts.find();
 
@@ -76,7 +76,7 @@ passport.use(
           console.log(error);
           throw error;
         }
-      // });
+      });
     }
   )
 );

@@ -15,7 +15,7 @@ function getGmail(req){
   if(!req.user.emails){
     email = req.user.id;
   }else{
-    email = getGmail(req);
+    email = req.user.emails[0].value;
   }
   return email;
 }
